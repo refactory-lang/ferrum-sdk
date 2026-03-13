@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://github.com/refactory-lang"><img src="https://raw.githubusercontent.com/refactory-lang/.github/main/assets/refactory-logo.svg" alt="Refactory" width="300"></a>
+</p>
+
 # ferrum-sdk
 
 Python Component SDK for the Ferrum EDM platform. Operators author custom pipeline components (matching strategies, normalisers, validators, FEL extensions) in constrained Python. Components are compiled to native Rust via the Refactory pipeline and run alongside the Ferrum core with zero FFI overhead.
