@@ -100,7 +100,7 @@ A developer writes a data output adapter that writes processed entities to an ex
 
 ### User Story 7 - Python Component Translates to Rust via python-to-rust Pipeline (Priority: P1)
 
-A developer authors a component using the SDK, validates it with the profile validator, and submits it to the Refactory python-to-rust translation pipeline. The pipeline uses the SDK's API mapping to convert `ferrum_sdk` types/protocols to their `ferrum_core` Rust equivalents.
+A developer authors a component using the SDK, validates it with the profile validator, and submits it to the Refactory python-to-rust transformation pipeline. The pipeline uses the SDK's API mapping to convert `ferrum_sdk` types/protocols to their `ferrum_core` Rust equivalents.
 
 **Why this priority**: Translation to Rust is the entire reason the SDK exists. Without this, components would only work in Python. The API mapping is critical for the pipeline to know how to convert SDK types.
 
@@ -154,7 +154,7 @@ A developer opens their component in VS Code or PyCharm and gets full autocomple
 - **FR-011**: `SourceAdapter` protocol MUST require subclasses to implement `fetch_batch(self, batch_size: int) -> Result[list[EntityRecord], str]`.
 - **FR-012**: `SinkAdapter` protocol MUST require subclasses to implement `write_batch(self, records: list[EntityRecord]) -> Result[int, str]`.
 - **FR-013**: The SDK MUST provide `.pyi` type stub files for `ferrum_sdk`, `ferrum_sdk.types`, and `ferrum_sdk.protocols` so that IDEs and type checkers (mypy, pyright) can validate component code without compiling the Rust extension.
-- **FR-014**: The SDK MUST include an `api-map.yaml` file mapping each `ferrum_sdk` type and protocol to its corresponding `ferrum_core` Rust path, consumed by the python-to-rust translation pipeline.
+- **FR-014**: The SDK MUST include an `api-map.yaml` file mapping each `ferrum_sdk` type and protocol to its corresponding `ferrum_core` Rust path, consumed by the python-to-rust transformation pipeline.
 - **FR-015**: The SDK MUST be buildable via `maturin develop` (for local development) and `maturin build` (for distribution), producing a wheel that includes the compiled PyO3 extension module `ferrum_sdk._native`.
 - **FR-016**: All PyO3 bindings MUST implement Python `__repr__` and `__eq__` methods for debuggability and test assertions.
 - **FR-017**: `MatchScore` MUST reject `confidence` values outside `[0.0, 1.0]` by raising `ValueError` at construction time.
